@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!-- Creating a bean from the Employee class with the values as element -->
+    <bean name = "employee1" class="org.example.Employee">
+        <property name="id">
+            <value>
+                1
+            </value>
+        </property>
+        <property name="name">
+            <value>Jose</value>
+        </property>
+    </bean>
+
+    <!-- Creating a bean from the Employee class with the values as attribute -->
+    <bean name = "employee2" class="org.example.Employee">
+        <property name="id" value="2"/>
+        <property name="name" value="Daniel"/>
+    </bean>
+
+    <!-- Creating a bean from the Employee class using the p schema -->
+    <bean name = "employee3" class="org.example.Employee" p:id="3" p:name="Brandon"/>
+
+    <!-- Creating a Spring bean from the Hospital class,
+    using the <list> tag to set the departments property with multiple values.-->
+    <bean name="hospital" class="org.example.Hospital">
+        <property name="name">
+            <value>Global Hospitals</value>
+        </property>
+        <property name="departments">
+            <list>
+                <value>Front Office</value>
+                <value>In Patient</value>
+                <value>Out Patient</value>
+            </list>
+        </property>
+    </bean>
+
+    <!-- Creating a bean from the Customer class,
+     using the <map> tag to set the map of products-->
+    <bean name="customer" class="org.example.Customer">
+        <property name="id">
+            <value>1</value>
+        </property>
+        <property name="products">
+            <map>
+                <entry key="100" value="Iphone"/>
+                <entry key="200" value="Ipad"/>
+                <entry key="300" value="Mac"/>
+            </map>
+        </property>
+    </bean>
+
+    <!-- Creating a bean from the Customer class,
+     using the <props> tag to set the values of countries and languages-->
+    <bean name="countriesAndLangs" class="org.example.CountriesAndLanguages">
+        <property name="countriesAndLanguages">
+            <props>
+                <prop key="USA">English</prop>
+                <prop key="Spain">Spanish</prop>
+            </props>
+        </property>
+    </bean>
+
+    <!-- Creating a bean from the Scores and Students classes,
+     using the <ref> tag to make the reference to one bean to another-->
+    <bean name="scores" class="org.example.Scores" p:maths="5.4" p:physics="8.7" p:chemistry="2.8" />
+    <bean name="student" class="org.example.Students">
+        <property name="scores">
+            <ref bean="scores"/>
+        </property>
+    </bean>
+
+    <!-- Creating a second Students bean but using "ref" inside the property tag-->
+    <bean name="student2" class="org.example.Students">
+        <property name="scores" ref="scores"/>
+    </bean>
+
+    <!-- Creating a third Students bean but using "ref" with p schema-->
+    <bean name="student3" class="org.example.Students" p:scores-ref="scores"/>
+
+</beans>
