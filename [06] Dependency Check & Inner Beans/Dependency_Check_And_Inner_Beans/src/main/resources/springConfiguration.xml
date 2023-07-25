@@ -8,10 +8,10 @@
     http://www.springframework.org/schema/context/spring-context.xsd">
     <context:annotation-config/>
 
-    <!--    Creation of a ben from the class "Prescription" to show how dependency check works-->
+    <!--    Creation of a bean from the class "Prescription" to show how dependency check works-->
     <bean class="org.example.Prescription" name="prescription" p:id="123"/>
 
-    <!--    Inner Beans / Nested Bean-->
+    <!--    Showing of how the injection of a inner bean is done -->
 
     <bean class="org.example.Employee" name="employee" p:id="123" >
         <property name="address">

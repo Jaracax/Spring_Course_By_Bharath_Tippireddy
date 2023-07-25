@@ -17,7 +17,5 @@ public class Test {
     public static void innerBeans(){
         Employee employee = context.getBean("employee", Employee.class);
         System.out.println(employee);
-        System.out.println(employee.hashCode());
-        System.out.println(employee.hashCode());
     }
 }
