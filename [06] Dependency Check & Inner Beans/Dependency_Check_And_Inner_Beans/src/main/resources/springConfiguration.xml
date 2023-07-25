@@ -7,6 +7,16 @@
     http://www.springframework.org/schema/context
     http://www.springframework.org/schema/context/spring-context.xsd">
     <context:annotation-config/>
-    <bean class="org.example.Prescription" name="presciption"/>
+
+    <!--    Creation of a ben from the class "Prescription" to show how dependency check works-->
+    <bean class="org.example.Prescription" name="prescription" p:id="123"/>
+
+    <!--    Inner Beans / Nested Bean-->
+
+    <bean class="org.example.Employee" name="employee" p:id="123" >
+        <property name="address">
+            <bean class="org.example.Address" p:housePrivateNumber="1500" p:street="Louisiana" p:city="LA"/>
+        </property>
+    </bean>
 
 </beans>

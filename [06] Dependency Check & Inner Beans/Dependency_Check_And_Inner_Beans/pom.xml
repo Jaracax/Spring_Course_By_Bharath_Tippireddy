@@ -3,11 +3,11 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>org.example</groupId>
-  <artifactId>Dependency_Check_Inner_Beans_Scopes</artifactId>
+  <artifactId>Dependency_Check_And_Inner_Beans</artifactId>
   <version>1.0-SNAPSHOT</version>
   <packaging>jar</packaging>
 
-  <name>Dependency_Check_Inner_Beans_Scopes</name>
+  <name>Dependency_Check_And_Inner_Beans</name>
   <url>http://maven.apache.org</url>
 
   <properties>
