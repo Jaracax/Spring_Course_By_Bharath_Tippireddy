@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:c="http://www.springframework.org/schema/c"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd">
+    <context:annotation-config/>
+
+<!--    Using constructor injection as a value -->
+    <bean class="org.example.Address"
+          name="address" p:housePrivateNumber="1740" p:street="Bronx" p:city="Chicago"/>
+    <bean class="org.example.Employee" name="employee1">
+        <constructor-arg>
+            <value>
+                123
+            </value>
+        </constructor-arg>
+        <constructor-arg>
+            <ref bean="address"/>
+        </constructor-arg>
+    </bean>
+
+    <!--    Using constructor injection as an attribute -->
+    <bean class="org.example.Employee" name="employee2">
+        <constructor-arg value="456"/>
+        <constructor-arg ref="address"/>
+    </bean>
+
+    <!--    Using constructor injection with the C schema -->
+    <bean class="org.example.Employee" name="employee3" c:id="789" c:address-ref="address"/>
+
+<!--    Showing the ambiguity problems that can happen because of the types
+        of constructors if we don't use the "type" attribute -->
+    <bean class="org.example.Addition" name="addition1">
+        <constructor-arg value="10" type="int"/>
+        <constructor-arg value="20" type="int"/>
+    </bean>
+
+
+</beans>

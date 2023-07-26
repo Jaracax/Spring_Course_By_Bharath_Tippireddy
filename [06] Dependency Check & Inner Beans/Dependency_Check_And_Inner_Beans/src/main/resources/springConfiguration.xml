@@ -6,7 +6,6 @@
     http://www.springframework.org/schema/beans/spring-beans.xsd
     http://www.springframework.org/schema/context
     http://www.springframework.org/schema/context/spring-context.xsd">
-    <context:annotation-config/>
 
     <!--    Creation of a bean from the class "Prescription" to show how dependency check works-->
     <bean class="org.example.Prescription" name="prescription" p:id="123"/>
