@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:c="http://www.springframework.org/schema/c"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd">
+    <context:annotation-config/>
+
+    <!-- Bean that will be wired -->
+    <bean class="org.example.Address" name="address" p:street="Mitre" p:city="Buenos Aires"
+          p:housePrivateNumber="5678"/>
+
+    <!--    Auto Wiring in the xml using byType -->
+    <bean class="org.example.Employee" name="employee1" autowire="byType"/>
+
+    <!--    Auto Wiring in the xml using byName -->
+    <bean class="org.example.Employee" name="employee2" autowire="byName"/>
+
+    <!--    Auto Wiring in the xml using constructor -->
+    <bean class="org.example.Employee" name="employee3" autowire="constructor"/>
+
+    <!-- Auto Wiring using the @Autowire annotation -->
+    <bean class="org.example.Employee" name="employee4"/>
+
+</beans>
